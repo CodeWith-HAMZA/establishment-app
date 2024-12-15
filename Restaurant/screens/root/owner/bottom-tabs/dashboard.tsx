@@ -31,25 +31,25 @@ const OwnerDashboardScreen = () => {
     })
       .then(image => {
         // console.log(image);
-        setSelectedImage(image);
+        // setSelectedImage(image);
       })
       .catch(error => {
         console.log(error);
       });
   };
-  if (isLoading) {
-    return (
-      <ActivityIndicator
-        size={'large'}
-        style={{margin: 'auto'}}
-        color={theme.colors.primary}
-      />
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <ActivityIndicator
+  //       size={'large'}
+  //       style={{margin: 'auto'}}
+  //       color={theme.colors.primary}
+  //     />
+  //   );
+  // }
 
   console.log(data)
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container, {opacity: isLoading ? 0.4: 1}]}>
       {/* Header */}
       <View style={styles.header}>
         <Image
@@ -71,7 +71,7 @@ const OwnerDashboardScreen = () => {
           </View>
           <TouchableOpacity
             onPress={() => {
-              handleEditProfile();
+              // handleEditProfile();
             }}
             style={[styles.editIcon, {backgroundColor: theme.colors.primary}]}>
             <VectorIcon library="Feather" name="edit" size={18} color="white" />{' '}
@@ -268,6 +268,7 @@ const OwnerDashboardScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+     
     backgroundColor: '#FFFFFF',
   },
   header: {

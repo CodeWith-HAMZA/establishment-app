@@ -63,11 +63,7 @@ const ChangePasswordForm = (props) => {
   return (
     <View style={styles.container}>
 
-      <Image
-        resizeMode="contain"
-        style={{alignSelf: 'center'}}
-        source={require('./../../assets/images/logo.png')}
-      />
+    
       <Text style={styles.title}>Change Password</Text>
       <Text style={styles.subtitle}>Update your password securely</Text>
 
@@ -127,8 +123,8 @@ const ChangePasswordForm = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: '6%',
-    paddingTop: '12%',
+     paddingHorizontal: '6%',
+    paddingTop: '20%',
   },
   title: {
     fontSize: 24,

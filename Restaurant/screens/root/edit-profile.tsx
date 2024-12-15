@@ -55,7 +55,7 @@ const EditProfileScreen = () => {
             <VectorIcon library="Feather" name="edit" size={16} color="white" />
           </TouchableOpacity>
         </View>
-        <Text style={styles.title}>@{user?.name}</Text>
+        <Text style={styles.title}>@{user?.name} ({user?.role})</Text>
 
         {/* Input Fields */}
         <View style={styles.formContainer}>

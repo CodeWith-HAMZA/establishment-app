@@ -34,12 +34,13 @@ export default function EstablishmentDetailsScreen() {
         inActiveIndicatorStyle={{opacity: 0.4}}
         activeIndicatorStyle={{backgroundColor: '#fff', width: 10, height: 10}}
         caroselImageContainerStyle={{
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
           padding: 0,
           margin: 0,
           height: 240,
-          top: '-1u%',
+          // top: '-1%',
         }}
+        indicatorContainerStyle={{top: "5%"}}
         data={[
           {
             img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg',

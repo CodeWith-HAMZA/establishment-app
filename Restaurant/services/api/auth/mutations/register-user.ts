@@ -15,7 +15,8 @@ export const useRegisterUser = () => {
       nav.navigate('VerifyOtp', {email: data.user.email});
 
       showMessage({
-        message: `Welcome ${data?.user.name}, Kindly check your mail ${data.user.email}`,
+        message: `Welcome ${data?.user.name}!`,
+        description: `Kindly check your mail ${data.user.email}`,
         type: 'success',
       });
     },
