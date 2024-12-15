@@ -1,3 +1,28 @@
+
+<h2>Technologies Used</h2>
+
+<h3>Frontend (Mobile App)</h3>
+<ul>
+  <li><strong>React Native:</strong> For building cross-platform mobile applications.</li>
+  <li><strong>React Navigation:</strong> For managing screen transitions and navigation.</li>
+  <li><strong>Redux Toolkit:</strong> For global state management.</li>
+  <li><strong>React Query (TanStack Query):</strong> For API data fetching and caching.</li>
+  <li><strong>Axios:</strong> For making API requests.</li>
+  <li><strong>React Hook Form:</strong> For form handling and validation.</li>
+  <li><strong>React Native Vector Icons:</strong> For adding icons to the UI.</li>
+  <li><strong>React Native Flash Messages:</strong> For user feedback on actions (success or error).</li>
+  <li><strong>React Native Keychain:</strong> For secure storage of authentication tokens.</li>
+</ul>
+
+<h3>Backend (Server)</h3>
+<ul>
+  <li><strong>Node.js with Express:</strong> For developing RESTful APIs.</li>
+  <li><strong>MongoDB with Mongoose:</strong> For database management and schema modeling.</li>
+  <li><strong>Cloudinary:</strong> For image upload and retrieval.</li>
+  <li><strong>Nodemailer:</strong> For sending OTPs and email notifications.</li>
+  <li><strong>JSON Web Tokens (JWT):</strong> For secure user authentication.</li>
+  <li><strong>Bcrypt.js:</strong> For hashing and securely storing passwords.</li>
+</ul>
 <div align="center">
   <table>
     <tr>
