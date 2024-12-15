@@ -1,0 +1,3 @@
+* I used bun as package manager for the project, (we can use npm to install deps)
+* if regarding installation problem occurs, to use bun package manager: go -> https://bun.sh/ and install bun in system
+*, then -> run: bun install  
