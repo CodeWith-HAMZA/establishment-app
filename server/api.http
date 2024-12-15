@@ -1,0 +1,62 @@
+@baseUrl = http://localhost:3000/api
+
+### Register User (Send OTP)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "hamza263973@gmail.com",
+    "password": "securepassword123",
+    "location":{
+        "lat": 50,
+    "lng": 50,
+    "country": "PK"
+    }
+
+}
+
+### Verify OTP
+POST {{baseUrl}}/auth/verify-otp?passwordReset=true
+Content-Type: application/json
+
+{
+    "email": "codeonlinesource@gmail.com",
+    "otp": "400023"
+}
+
+### Resend OTP
+POST {{baseUrl}}/auth/resend-otp
+Content-Type: application/json
+
+{
+    "email": "bohosir824@datingel.com"
+}
+
+### login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "bohosir824@datingel.com",
+    "password": "Sthauthe"
+}
+
+### cegavo7408@bawsny.com
+POST {{baseUrl}}/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email": "codeonlinesource@gmail.com"
+ }
+
+### verify for forgot password
+POST {{baseUrl}}/auth/verify-otp
+Content-Type: application/json
+
+{
+    "email": "codeonlinesource@gmail.com",
+    "otp": "616674",
+    "passwordReset": true
+ }
+
