@@ -2,8 +2,9 @@
 import {useQuery} from '@tanstack/react-query';
 import {me} from '../../../auth.service';
 
-export const useGetCurrentUser = () =>
-  useQuery({
+export const useGetCurrentUser = () => {
+  return useQuery({
     queryKey: ['eu'],
-    queryFn: () => me,
+    queryFn: () => me(),
   });
+};

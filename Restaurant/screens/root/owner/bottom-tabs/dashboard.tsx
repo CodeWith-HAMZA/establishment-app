@@ -6,17 +6,23 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import {testImageHotel} from '../../../../constants';
 import {useNavigation, useTheme} from '@react-navigation/native';
 import {CustomTheme} from '../../../../utils/theme';
 import VectorIcon from '../../../../components/shared/vector-icon';
 import ImageCropPicker from 'react-native-image-crop-picker';
+import {useGetCurrentUser} from '../../../../services/api/auth/queries/current-user';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../../store';
 
 const OwnerDashboardScreen = () => {
   const theme = useTheme() as CustomTheme;
   const [selectedImage, setSelectedImage] = useState(null);
-  const nav = useNavigation()
+  const nav = useNavigation();
+
+  const {data, isLoading} = useGetCurrentUser();
   const handleEditProfile = () => {
     ImageCropPicker.openPicker({
       width: 300,
@@ -31,6 +37,17 @@ const OwnerDashboardScreen = () => {
         console.log(error);
       });
   };
+  if (isLoading) {
+    return (
+      <ActivityIndicator
+        size={'large'}
+        style={{margin: 'auto'}}
+        color={theme.colors.primary}
+      />
+    );
+  }
+
+  console.log(data)
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -41,7 +58,7 @@ const OwnerDashboardScreen = () => {
         />
         <View style={styles.overlay} />
         <Text style={styles.welcomeText}>
-          👋 Welcome Back, <Text style={styles.username}>Jake!</Text>
+          👋 Welcome Back, <Text style={styles.username}>{data?.user?.name}!</Text>
         </Text>
 
         <View style={styles.profileContainer}>

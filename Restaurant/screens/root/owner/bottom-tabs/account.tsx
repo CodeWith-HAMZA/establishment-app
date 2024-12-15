@@ -5,6 +5,7 @@ import {Header} from '@react-navigation/elements';
 import {useNavigation} from '@react-navigation/native';
 import PrimaryButton from '../../../../components/shared/buttons/primary.button';
 import {logout} from '../../../../utils/storage';
+import { showMessage } from 'react-native-flash-message';
 
 const MenuItem = ({icon, title, onPress}) => {
   return (
@@ -74,6 +75,11 @@ export default function OwnerAccountScreen() {
           onPress={async () => {
             setLoading(true);
             await logout();
+            showMessage({
+              type: 'success',
+              description: "Successfully Logged out",
+              message: "Success"
+            })
             nav.replace('SignIn');
             setLoading(false);
           }}

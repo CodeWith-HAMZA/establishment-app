@@ -22,6 +22,7 @@ interface AuthProviderProps {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const dispatch: AppDispatch = useDispatch();
+  
   //   const navigation = useNavigation()
 
   useEffect(() => {

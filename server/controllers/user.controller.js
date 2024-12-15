@@ -68,7 +68,7 @@ exports.registerUser = async (req, res) => {
       } else {
 
         // -- resending the email if like in casee, user didn't verified its otp 
-        return resend(email, res);
+        return resend(existingUser.email, res);
 
         // return res.status(400).json({ message: 'User already registered. Please verify your account.' });
       }

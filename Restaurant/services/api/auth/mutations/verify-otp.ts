@@ -27,8 +27,13 @@ export const useVerifyOtp = () => {
       }
       console.log(data);
       await storeAuthToken(data?.token);
+      if(data.user.role === 'user'){
+        return nav.replace('TabsNavigation');
+      }
+      if(data.user.role === 'owner'){
+        return nav.replace('OwnerTabsNavigation');
+      }
       // @ts-ignore
-      nav.navigate('TabsNavigation');
 
       showMessage({
         message: `Successfully Verified Your Email`,

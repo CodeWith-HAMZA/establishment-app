@@ -1,1 +1,2 @@
-* I used bun as package manager for the project
+* I used bun as package manager for the project, (we can use npm to install deps)
+* if regarding installation problem occurs, -> run: bun add 
