@@ -23,6 +23,7 @@
   <li><strong>JSON Web Tokens (JWT):</strong> For secure user authentication.</li>
   <li><strong>Bcrypt.js:</strong> For hashing and securely storing passwords.</li>
 </ul>
+<h4>Some SS' of the Application</h4>
 <div align="center">
   <table>
     <tr>
