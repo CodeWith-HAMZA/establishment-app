@@ -98,7 +98,7 @@
     </tr>
     <tr>
       <td colspan="4">
-        <img src="https://github.com/user-attachments/assets/b8440d2d-914c-4ee1-80e9-ebf72f2d3cc6" alt="Screenshot 21" width="800" />
+        <img src="https://github.com/user-attachments/assets/b8440d2d-914c-4ee1-80e9-ebf72f2d3cc6" alt="Screenshot 21" width="300" />
       </td>
     </tr>
   </table>
