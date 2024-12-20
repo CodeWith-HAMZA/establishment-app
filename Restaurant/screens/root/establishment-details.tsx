@@ -12,6 +12,7 @@ import VectorIcon from '../../components/shared/vector-icon';
 import PrimaryButton from '../../components/shared/buttons/primary.button';
 import {useNavigation} from '@react-navigation/native';
 import {ImageSlider} from 'react-native-image-slider-banner';
+import {Header} from '@react-navigation/elements';
 
 const facilities = ['Building', 'Bathroom', 'Ramps', 'Bar', 'Wheelchairs'];
 
@@ -30,17 +31,48 @@ export default function EstablishmentDetailsScreen() {
   const navigation = useNavigation();
   return (
     <>
+      <View
+        style={{
+          zIndex: 80,
+          position: 'relative',
+          top: '12%',
+          paddingHorizontal: 12,
+          paddingVertical: 4,
+          width: '100%',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          // marginBottom: '8%',
+          marginTop: -74,
+        }}>
+          <TouchableOpacity onPress={() => {
+            navigation.goBack()
+          }}>
+
+        <VectorIcon  color="#fff" library="Ionicons" name="arrow-back" />
+          </TouchableOpacity>
+
+        <Image
+          source={require('./../../assets/icons/message.png')}
+          // style={{marginRight: '14%'}}
+        />
+        {/* <Text>Shaddu</Text> */}
+      </View>
       <ImageSlider
         inActiveIndicatorStyle={{opacity: 0.4}}
-        activeIndicatorStyle={{backgroundColor: '#fff', width: 10, height: 10}}
+        activeIndicatorStyle={{
+          backgroundColor: '#fff',
+          width: 10,
+          height: 10,
+        }}
         caroselImageContainerStyle={{
           // backgroundColor: 'red',
           padding: 0,
           margin: 0,
-          height: 240,
+          // height: 240,
+          height: '80%',
           // top: '-1%',
         }}
-        indicatorContainerStyle={{top: "5%"}}
+        // indicatorContainerStyle={{top: '5%'}}
         data={[
           {
             img: 'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg',
@@ -55,7 +87,7 @@ export default function EstablishmentDetailsScreen() {
         timer={4000}
         autoPlay={true}
         onItemChanged={item => console.log('item', item)}
-        closeIconColor="#fff"
+        // closeIconColor="#fff"
       />
       <ScrollView style={styles.container}>
         {/* Hotel Info Section */}
@@ -130,6 +162,8 @@ export default function EstablishmentDetailsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // top: '-30%',
+    // marginTop: '-20%',
     backgroundColor: '#fff',
   },
   carousel: {
@@ -146,6 +180,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
 
     padding: 16,
+    paddingTop: 0,
+    // paddingTop: 0,
   },
   hotelName: {
     fontSize: 24,

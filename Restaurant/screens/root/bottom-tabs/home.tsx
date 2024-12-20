@@ -13,6 +13,7 @@ import {useNavigation, useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CustomTheme} from '../../../utils/theme';
 import FeaturedEstablishments from '../../../components/lists/featured-establishment-list';
+import ReusableDropdown from '../../../components/shared/dropdown';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -86,12 +87,22 @@ const HomeScreen = () => {
         <View>
           <Text style={styles.locationText}>Location</Text>
           <View style={{flexDirection: 'row'}}>
-            <Text style={[styles.placeText, {color: theme.colors.lightGrey + '90'}]}>
-              Theron Branch Suite
-            </Text>
-            <Icon style={{marginTop: 4}} name="chevron-down" size={20} color={theme.colors.lightGrey + '80'}  />
+          <ReusableDropdown
+          containerStyle={{width: 180, padding: 0, paddingTop: 0}}
+          placeholder="Hotel Inn, Sindh, Hyd"
+          items={[{
+            label: 'Hotel In2, Sindh, Hyd',
+            value: '1'
+          }, {
+            label: 'Hotel In3, Sindh, Hyd',
+            value: '2'
+          }]}
+          onChangeValue={() => {
+            console.log('stheuthu');
+          }}
+        />
           </View>
-        </View>
+        </View> 
         <Image source={require('./../../../assets/icons/message.png')} />
       </View>
       <Text style={[styles.locationText, {marginLeft: '5%', marginTop: 6}]}>Places To Go</Text>

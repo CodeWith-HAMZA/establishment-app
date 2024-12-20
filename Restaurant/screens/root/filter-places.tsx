@@ -70,7 +70,6 @@ const FilterPlacesScreen = () => {
         <Text style={[styles.label, {marginTop: '4%'}]}>State</Text>
 
         <TextBox
-        
           placeholder="Enter State"
           onChangeText={() => {
             console.log('');
@@ -83,33 +82,43 @@ const FilterPlacesScreen = () => {
         <ReusableDropdown
           placeholder="Select City"
           items={items}
+          border
+          renderLeftIcon={() => (
+            <VectorIcon
+              library="SimpleLineIcons"
+              size={16}
+              style={{marginRight: 10}}
+              name="location-pin"
+            />
+          )}
           onChangeValue={() => {
             console.log('stheuthu');
           }}
         />
 
         {/* Distance */}
-        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: '8%'}}>
-
-        <Text style={{fontSize:16, fontWeight: '500'}}>Distance</Text>
-        <Text style={{color: theme.colors.lightGrey+'99'}}>Within {Math.floor(distance)} km</Text>
-
-
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: '8%',
+          }}>
+          <Text style={{fontSize: 16, fontWeight: '500'}}>Distance</Text>
+          <Text style={{color: theme.colors.lightGrey + '99'}}>
+            Within {Math.floor(distance)} km
+          </Text>
         </View>
 
         <ReusableSlider
           onValueChange={val => {
-            const num =  val.at(0) 
-            setDistance(num || 0)
+            const num = val.at(0);
+            setDistance(num || 0);
           }}
           value={distance}
-          containerStyle={{
-            
-          }}
-
-          
+          containerStyle={{}}
         />
-         <Text style={[styles.label, {marginTop: '4%', marginBottom: '4%'}]}>
+        <Text style={[styles.label, {marginTop: '4%', marginBottom: '4%'}]}>
           Establishment Type
         </Text>
         <View style={[styles.typeContainer]}>
@@ -215,7 +224,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
   },
-  sliderText: { 
+  sliderText: {
     fontSize: 14,
     color: '#333',
   },
