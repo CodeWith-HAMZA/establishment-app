@@ -14,7 +14,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import {Header} from '@react-navigation/elements';
 
-const facilities = ['Building', 'Bathroom', 'Ramps', 'Bar', 'Wheelchairs'];
+const facilities = ['Building', 'Walking', 'Bathroom', 'Ramps', 'Bar', 'Screen Readers', 'Wheelchairs'];
 
 export default function EstablishmentDetailsScreen() {
   const [images, setImages] = useState([
@@ -44,12 +44,12 @@ export default function EstablishmentDetailsScreen() {
           // marginBottom: '8%',
           marginTop: -74,
         }}>
-          <TouchableOpacity onPress={() => {
-            navigation.goBack()
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
           }}>
-
-        <VectorIcon  color="#fff" library="Ionicons" name="arrow-back" />
-          </TouchableOpacity>
+          <VectorIcon color="#fff" library="Ionicons" name="arrow-back" />
+        </TouchableOpacity>
 
         <Image
           source={require('./../../assets/icons/message.png')}
@@ -126,24 +126,40 @@ export default function EstablishmentDetailsScreen() {
             70 Washington Square South, New York, NY 10012, United States
           </Text>
 
-          <Text style={styles.hotelDescription}>
+          <Text style={styles.hotelAddress}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley.
-            {'\n\n'}
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
           </Text>
 
-          {/* Facilities Section */}
           <View style={[styles.facilitiesSection, {marginBottom: '14%'}]}>
             <Text style={styles.sectionTitle}>Available Facilities</Text>
             <View style={styles.facilityList}>
-              {facilities.map((facility, index) => (
-                <View key={index} style={styles.facilityBadge}>
-                  <Text style={styles.facilityText}>{facility}</Text>
-                </View>
-              ))}
+              <FlatList
+                numColumns={2}
+                data={facilities}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item, index}) => (
+                  <View
+                    key={index}
+                    style={[
+                      {
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: 180,
+                        gap: 12,
+                        alignItems: 'center',
+                        marginVertical: 5,
+                      },
+                    ]}>
+                    <Image
+                      source={require('./../../assets/icons/checked.png')}
+                      style={{width: 20, height: 20}}
+                    />
+                    <Text style={styles.facilityText}>{item}</Text>
+                  </View>
+                )}
+              />
             </View>
           </View>
 
@@ -190,8 +206,8 @@ const styles = StyleSheet.create({
   },
   hotelAddress: {
     fontSize: 14,
-    color: '#666',
-    marginVertical: 8,
+    color: 'grey',
+    marginVertical: 6,
   },
   ratingRow: {
     flexDirection: 'row',
@@ -225,9 +241,9 @@ const styles = StyleSheet.create({
   },
   facilityList: {
     justifyContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
     flexWrap: 'wrap',
-    gap: 2,
+    gap: 16,
   },
   facilityBadge: {
     paddingHorizontal: 12,
@@ -238,8 +254,9 @@ const styles = StyleSheet.create({
     borderColor: '#FF6B6B',
   },
   facilityText: {
-    fontSize: 14,
-    color: '#FF6B6B',
+    fontSize: 15.4,
+    // color: '#FF6B6B',
+    color: 'black',
   },
   contactButton: {
     backgroundColor: '#C70039',
