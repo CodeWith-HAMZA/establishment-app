@@ -44,6 +44,8 @@ import PostEstablishmentScreen from './screens/root/owner/post-establishment';
 import OwnerReviewsScreen from './screens/root/owner/owner-reviews';
 import ForgotPasswordScreen from './screens/auth/forgot-password';
 import ChangePasswordScreen from './screens/auth/change-password';
+import HereMaps from './screens/root/here-maps';
+import Demo from './screens/root/demo';
 export function HomeScreen() {
   const navigation = useNavigation();
   return (
@@ -66,7 +68,7 @@ export function DetailScreen() {
 
 const RootStack = createNativeStackNavigator({
   screenOptions: {headerShown: false},
-  initialRouteName: 'Splash',
+  initialRouteName: 'Demo',
   screens: {
     TabsNavigation: BottomTabsNavigation,
     OwnerTabsNavigation: OwnerBottomTabsNavigation,
@@ -74,6 +76,7 @@ const RootStack = createNativeStackNavigator({
     Splash: SplashScreen,
     SignIn: SigninScreen,
     SignUp: SignUpScreen,
+    Demo: Demo,
     FilterPlaces: FilterPlacesScreen,
     SelectRole: SelectRoleScreen,
     SearchResults: SearchResultsScreen,
@@ -81,6 +84,7 @@ const RootStack = createNativeStackNavigator({
     PlaceDirections: PlaceDirectionsScreen,
     EstablishmentDetails: EstablishmentDetailsScreen,
     Reviews: ReviewsScreen,
+    HereMaps: HereMaps,
     OwnerReviews: OwnerReviewsScreen,
     PostReview: PostReviewScreen,
     EditProfile: EditProfileScreen,
@@ -98,11 +102,8 @@ export default function App() {
   return (
     <>
       <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'} />
-      <AuthProvider>
-        <FlashMessage position="top" /> {/* <--- here as the last component */}
-        <Navigation theme={myCustomTheme} />
-      </AuthProvider>
-      {/* <MultiStepQuestionnaireForm /> */}
-    </>
+      <Demo/>
+     </>
   );
 }
+{/* <MultiStepQuestionnaireForm /> */}

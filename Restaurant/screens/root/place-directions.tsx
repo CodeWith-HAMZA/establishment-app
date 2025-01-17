@@ -11,8 +11,10 @@ import {
 import TextBox from '../../components/shared/text-box';
 import VectorIcon from '../../components/shared/vector-icon';
 import ReusableBottomSheet from '../../components/shared/bottom-sheet';
+import { useNavigation } from '@react-navigation/native';
 
 const PlaceDirectionsScreen = () => {
+  const navigation = useNavigation()
   const sheetRef = useRef()
   useEffect(() => {
      sheetRef.current?.open();
@@ -25,16 +27,16 @@ const PlaceDirectionsScreen = () => {
         {/* Input Fields */}
         <View style={{flexDirection: 'row', alignItems: '', gap: 4}}>
           <View style={{paddingBottom: '14%'}}>
-            <Image
+            {/* <Image
               source={require('../../assets/icons/red-dot.png')}
               style={{width: 26, top: '12%'}}
               resizeMode="contain"
-            />
-            
+            /> */}
+            <VectorIcon name='radio-btn-active' size={18} containerStyle={{top: '24%'}} color='#0476D0' library='Fontisto'/>
 
             <Image
               source={require('../../assets/icons/line.png')}
-              style={{height: 30, left: '40%', marginTop: 4}}
+              style={{height: 30, left: '40%', marginTop: 30}}
               resizeMode="stretch"
             />
             <Image
@@ -46,16 +48,17 @@ const PlaceDirectionsScreen = () => {
           <View style={styles.inputContainer}>
             <View style={styles.inputBox}>
               <TextBox
-                inputStyles={{width: '85%', marginVertical: 6}}
+                inputStyles={{width: '80%', marginVertical: 6, marginHorizontal: 8}}
                 placeholder="Your Location"
               />
-              <Image source={require('../../assets/icons/message.png')} />
+              <VectorIcon library='Entypo' containerStyle={{}} name="dots-three-horizontal" size={20} color='black' />
+              {/* <Image source={require('../../assets/icons/message.png')} /> */}
             </View>
 
             <View style={styles.inputBox}>
               <TextBox
-                inputStyles={{width: '85%', marginVertical: 6}}
-                placeholder="Hotel Inn"
+                inputStyles={{width: '80%', marginVertical: 6, marginHorizontal: 8}}
+                placeholder="USA"
               />
 
               <Image source={require('../../assets/icons/arrows.png')} />
@@ -69,7 +72,8 @@ const PlaceDirectionsScreen = () => {
           showsHorizontalScrollIndicator={false}
           style={styles.durationScroll}>
           <TouchableOpacity style={styles.durationBoxActive}>
-            <Image source={require('../../assets/icons/car.png')} />
+            {/* <Image source={require('../../assets/icons/car.png')} /> */}
+            <VectorIcon  library='MaterialIcons' name='directions-car-filled' color='#0476D0' />
             <Text style={styles.durationTextActive}>11min</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.durationBox}>
@@ -96,19 +100,22 @@ const PlaceDirectionsScreen = () => {
       </View>
 
       {/* Bottom Slide-Up Section */}
-      <ReusableBottomSheet height='26%' ref={sheetRef}>
+      <ReusableBottomSheet height='32%' ref={sheetRef}>
         <View style={{marginTop: '-8%'}}>
          <Text style={styles.bottomTime}>11 min <Text style={{color: 'grey'}}>(2.5 km)</Text></Text>
         <Text style={[styles.bottomAddress,{ color: 'grey', marginBottom: '8%'}]}>
           Comte De Santa Clara 15, 3341, Barcelona, Spain
         </Text>
         <View style={styles.bottomButtons}>
-          <TouchableOpacity style={styles.startButton}>
+          <TouchableOpacity onPress={() => {
+            navigation.navigate('HereMaps')
+          }} style={styles.startButton}>
             <Image source={require('../../assets/icons/arrow2.png')} /> 
             <Text style={styles.startButtonText}>Start</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.shareButton}>
-          <Image source={require('../../assets/icons/share.png')} /> 
+          {/* <Image source={require('../../assets/icons/share.png')} />  */}
+          <VectorIcon library='Fontisto' name='share' color='#0476D0' size={18} />
 
             <Text style={styles.shareButtonText}>Share</Text>
           </TouchableOpacity>
@@ -166,6 +173,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     alignItems: 'center',
+    color: 'gray',
     borderRadius: 20,
   },
   durationBoxActive: {
@@ -174,6 +182,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: '#0000001F',
     flexDirection: 'row',
+    // color: 'gray',
     gap: 8,
     alignItems: 'center',
     borderRadius: 20,
@@ -184,7 +193,7 @@ const styles = StyleSheet.create({
   },
   durationTextActive: {
     fontSize: 14,
-    color: '#B32425',
+    color: '#0476D0',
   },
   mPlaceDirectionsScreenlaceholder: {
     flex: 1,
@@ -222,7 +231,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 10,
-    backgroundColor: '#B32425',
+    backgroundColor: '#0476D0',
     padding: 15,
     paddingVertical: 10,
     borderRadius: 50,
@@ -239,7 +248,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    borderColor: '#B32425',
+    borderColor: '#0476D0',
     borderWidth: 1,
     gap: 10,
     backgroundColor: '#fff',
@@ -251,7 +260,7 @@ const styles = StyleSheet.create({
   },
   shareButtonText: {
     fontSize: 18,
-    color: '#B32425',
+    color: '#0476D0',
     fontWeight: '500',
   },
 });

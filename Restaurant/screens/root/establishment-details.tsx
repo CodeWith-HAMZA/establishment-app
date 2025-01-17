@@ -41,7 +41,6 @@ export default function EstablishmentDetailsScreen() {
           width: '100%',
           flexDirection: 'row',
           justifyContent: 'space-between',
-          // marginBottom: '8%',
           marginTop: -74,
         }}>
         <TouchableOpacity

@@ -25,4 +25,4 @@ const MainApplication = () => (
         </Provider>
     </QueryClientProvider>
 )
-AppRegistry.registerComponent(appName, () => MainApplication);
+AppRegistry.registerComponent(appName, () => App);
